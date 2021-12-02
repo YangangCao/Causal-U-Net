@@ -90,17 +90,17 @@ class CUNET(nn.Module):
         e7 = self.conv_block_7(e6)
         e8 = self.conv_block_8(e7)
 
-        d1 = self.tran_conv_block_1(e8)
-        d2 = self.tran_conv_block_2(torch.cat((d1, e7), 1))
-        d3 = self.tran_conv_block_3(torch.cat((d2, e6), 1))
-        d4 = self.tran_conv_block_4(torch.cat((d3, e5), 1))
-        d5 = self.tran_conv_block_5(torch.cat((d4, e4), 1))
-        d6 = self.tran_conv_block_6(torch.cat((d5, e3), 1))
-        d7 = self.tran_conv_block_7(torch.cat((d6, e2), 1))
-        d8 = self.tran_conv_block_8(torch.cat((d7, e1), 1))
-        d8 = d8.permute(0,1,3,2)
-        d8 = self.dense(d8)
-        return d8
+        d = self.tran_conv_block_1(e8)
+        d = self.tran_conv_block_2(torch.cat((d, e7), 1))
+        d = self.tran_conv_block_3(torch.cat((d, e6), 1))
+        d = self.tran_conv_block_4(torch.cat((d, e5), 1))
+        d = self.tran_conv_block_5(torch.cat((d, e4), 1))
+        d = self.tran_conv_block_6(torch.cat((d, e3), 1))
+        d = self.tran_conv_block_7(torch.cat((d, e2), 1))
+        d = self.tran_conv_block_8(torch.cat((d, e1), 1))
+        d = d.permute(0,1,3,2)
+        d = self.dense(d)
+        return d
 
 
 if __name__ == '__main__':

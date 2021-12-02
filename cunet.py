@@ -111,6 +111,6 @@ if __name__ == '__main__':
     print("input shape:", x.shape)
     prefix_frames = torch.zeros(1, 8, 512, K) # K zeros prefix frames 
     x = torch.cat((prefix_frames, x), 3)
-    print("output shape:",layer(x)[:,:,:-K,:].shape) # stripe the last K frames
+    print("output shape:",layer(x)[:,:,:-K,:].shape) # strip the last K frames
     total_num = sum(p.numel() for p in layer.parameters())
     print(total_num)
